@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
+    <script src="./Roblox.js"></script>
+</head>
+<body>
+    <a-scene>
+
+        <a-assets>
+            <a-asset-item id="roblox" src="./roblox-noob/source/roblox_noob/scene.gltf"></a-asset-item>
+
+        </a-assets>
+        <a-sky
+        geometry="primitive: sphere;"
+        material="shader: gradient; bottomColor: #00009e; topColor:51 255 153;offset: 0.0001;"
+        radius="100"
+        theta-length="180"
+        side="double"
+        animation="property: rotation; to: 0 300 0; easing:linear; loop: true; dur: 500000"
+      ></a-sky>
+      <a-box
+      position="0 0 0"
+      width=4
+      height=2
+      color="yellow"
+      ></a-box>
+      <!--Roblox Character-->
+      <a-entity
+        gltf-model="#roblox"
+        scale="10 10 10"
+        position="0 0 0"
+        rotation="0 -90 0"
+        roblox-rotation-reader
+      ></a-entity>
+      <!--CAMERA-->
+      <a-entity
+        camera="active: true"
+        look-controls
+        position="0 10 25"
+      ></a-entity>
+      
+    </a-scene>
+</body>
+</html>
